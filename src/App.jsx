@@ -1,6 +1,7 @@
 import { Helmet, HelmetProvider } from 'react-helmet-async'
 import { useState } from 'react'
 import {
+  FaArrowRight,
   FaBoxOpen,
   FaBriefcase,
   FaBullhorn,
@@ -133,7 +134,7 @@ const localBusinessSchema = {
 }
 
 function Seo() {
-  const title = 'شركة لارا للطباعة في الرياض | مطابع الرياض وخدمات الدعاية'
+  const title = 'شركة لارا للطباعة'
   const description =
     'شركة لارا للدعاية والإعلان والطباعة تقدم خدمات الطباعة في الرياض: طباعة ستكرات، لوحات بنر، بوكسات، كروت شخصية، بروشورات، وتغليف احترافي.'
 
@@ -177,11 +178,11 @@ function Header() {
         aria-label="التنقل الرئيسي"
       >
         <a href="#home" className="flex min-w-0 items-center gap-3" aria-label="شركة لارا الرئيسية">
-          <span className="grid h-11 w-11 place-items-center rounded-md bg-purple-700 text-white overflow-hidden">
+          <span className="grid h-11 w-11 place-items-center overflow-hidden rounded-md border border-slate-200 bg-white">
             <img src={laraLogo} alt="شعار شركة لارا" className="h-full w-full object-cover" />
           </span>
-          <span className="flex min-w-0 flex-col leading-tight">
-            <span className="text-base font-black text-zinc-950 sm:text-lg">شركة لارا للطباعة</span>
+          <span className="flex min-w-0 flex-col gap-0.5 leading-tight">
+            <span className="text-sm font-semibold text-zinc-900 sm:text-base">شركة لارا للطباعة</span>
             <span className="text-xs font-semibold text-purple-700">Lara Advertising & Printing</span>
           </span>
         </a>
@@ -217,7 +218,7 @@ function Header() {
 }
 
 function SectionEyebrow({ children }) {
-  return <p className="mb-3 text-sm font-black text-purple-700">{children}</p>
+  return <p className="mb-4 text-base font-extrabold tracking-tight text-purple-700 sm:text-lg">{children}</p>
 }
 
 function Hero() {
@@ -250,7 +251,6 @@ function Hero() {
           </div>
         </div>
         <figure className="relative mx-auto w-full max-w-[540px]">
-          <div className="absolute inset-6 rounded-full bg-purple-100 blur-3xl" aria-hidden="true" />
           <img
             src={laraLogo}
             width="340"
@@ -381,6 +381,12 @@ function Services() {
 function Contact() {
   const [showPhone, setShowPhone] = useState(false)
 
+  const revealPhone = () => {
+    if (!showPhone) {
+      setShowPhone(true)
+    }
+  }
+
   return (
     <section id="contact" className="scroll-mt-24 bg-white">
       <div className="mx-auto max-w-5xl px-4 py-16 text-center sm:px-6 lg:px-8 lg:py-24">
@@ -392,16 +398,31 @@ function Contact() {
           أخبرنا بنوع الطباعة، الكمية، المقاس، والخامة المطلوبة، وسيساعدك فريق لارا
           في اختيار الحل الأنسب لمشروعك التجاري أو الإعلاني.
         </p>
-        <div className="mt-8 flex justify-center gap-4 flex-wrap">
-          <a
-            href="tel:+966531659055"
-            onClick={() => setShowPhone(true)}
-            className="inline-flex min-h-14 w-full max-w-sm items-center justify-center gap-3 rounded-md border border-purple-200 bg-purple-50 px-6 text-lg font-black text-purple-900 transition hover:border-purple-700 hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-700 sm:w-auto"
-            aria-label="اتصل بشركة لارا"
-          >
-            <FaPhoneAlt aria-hidden="true" className="h-5 w-5" />
-            <span>{showPhone ? phoneDisplay : 'اتصل بنا'}</span>
-          </a>
+        <div className="mt-8 flex flex-wrap justify-center gap-4">
+          <div className="flex w-full max-w-sm items-center justify-center sm:w-auto">
+            <button
+              type="button"
+              onClick={revealPhone}
+              onPointerDown={revealPhone}
+              onPointerMove={revealPhone}
+              className="inline-flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-purple-300 bg-white text-purple-700 transition hover:bg-purple-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-700"
+              aria-label="إظهار رقم الهاتف"
+            >
+              <FaArrowRight aria-hidden="true" className="h-5 w-5" />
+            </button>
+            <a
+              href="tel:+966531659055"
+              className={`inline-flex h-14 items-center justify-center overflow-hidden whitespace-nowrap rounded-md border border-purple-200 bg-purple-50 text-lg font-bold text-purple-900 transition-all duration-500 ease-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-700 ${
+                showPhone
+                  ? 'mr-3 max-w-sm translate-x-0 px-6 opacity-100'
+                  : 'mr-0 max-w-0 translate-x-6 px-0 opacity-0 pointer-events-none'
+              }`}
+              aria-label={`اتصل على ${phoneDisplay}`}
+            >
+              <FaPhoneAlt aria-hidden="true" className="ms-2 h-5 w-5 shrink-0" />
+              <span dir="ltr">{phoneDisplay}</span>
+            </a>
+          </div>
           <a
             href={whatsappUrl}
             target="_blank"
