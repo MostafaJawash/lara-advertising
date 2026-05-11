@@ -224,7 +224,7 @@ function SectionEyebrow({ children }) {
 function Hero() {
   return (
     <section id="home" className="scroll-mt-24 bg-white">
-      <div className="mx-auto grid min-h-[calc(100svh-68px)] max-w-7xl items-center gap-10 px-4 py-12 sm:px-6 lg:grid-cols-[1.05fr_.95fr] lg:px-8 lg:py-16">
+      <div className="mx-auto grid min-h-[calc(100svh-68px)] max-w-7xl items-center gap-10 px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
         <div>
           <SectionEyebrow>شركة لارا للدعاية والإعلان والطباعة</SectionEyebrow>
           <h1 className="max-w-4xl text-4xl font-black leading-tight text-zinc-950 sm:text-5xl lg:text-6xl">
@@ -234,6 +234,16 @@ function Hero() {
             مطابع الرياض التي تجمع بين التصميم، الطباعة، التغليف، البنرات، وطباعة
             ستكرات الرياض في تجربة سريعة ومنظمة تناسب احتياجك التجاري.
           </p>
+          <figure className="relative mx-auto mt-8 w-full max-w-[540px]">
+            <img
+              src={laraLogo}
+              width="340"
+              height="360"
+              alt="شعار شركة لارا للطباعة في الرياض"
+              className="relative mx-auto h-auto w-[74%] max-w-[380px] drop-shadow-2xl"
+              fetchPriority="high"
+            />
+          </figure>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <a
               href="#services"
@@ -250,20 +260,6 @@ function Hero() {
             </a>
           </div>
         </div>
-        <figure className="relative mx-auto w-full max-w-[540px]">
-          <img
-            src={laraLogo}
-            width="340"
-            height="360"
-            alt="شعار شركة لارا للطباعة في الرياض"
-            className="relative mx-auto h-auto w-[74%] max-w-[380px] drop-shadow-2xl"
-            fetchPriority="high"
-          />
-          <figcaption className="relative mt-8 grid grid-cols-2 gap-3 text-center text-sm font-black text-zinc-800">
-            <span className="rounded-md border border-purple-100 bg-white p-3 shadow-sm">طباعة تجارية</span>
-            <span className="rounded-md border border-purple-100 bg-white p-3 shadow-sm">دعاية وتغليف</span>
-          </figcaption>
-        </figure>
       </div>
     </section>
   )
