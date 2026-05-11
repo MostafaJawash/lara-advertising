@@ -1,4 +1,5 @@
 import { Helmet, HelmetProvider } from 'react-helmet-async'
+import { useState } from 'react'
 import {
   FaBoxOpen,
   FaBriefcase,
@@ -15,7 +16,7 @@ import {
   FaWhatsapp,
 } from 'react-icons/fa'
 import { MdArticle, MdLocalShipping, MdOutlineInventory2 } from 'react-icons/md'
-import heroImage from './assets/hero.png'
+import laraLogo from '../Lara.png'
 
 const whatsappNumber = '966531659055'
 const phoneDisplay = '+966 53 165 9055'
@@ -176,11 +177,11 @@ function Header() {
         aria-label="التنقل الرئيسي"
       >
         <a href="#home" className="flex min-w-0 items-center gap-3" aria-label="شركة لارا الرئيسية">
-          <span className="grid h-11 w-11 place-items-center rounded-md bg-purple-700 text-white">
-            <FaPrint aria-hidden="true" className="h-5 w-5" />
+          <span className="grid h-11 w-11 place-items-center rounded-md bg-purple-700 text-white overflow-hidden">
+            <img src={laraLogo} alt="شعار شركة لارا" className="h-full w-full object-cover" />
           </span>
           <span className="flex min-w-0 flex-col leading-tight">
-            <span className="text-base font-black text-zinc-950 sm:text-lg">لارا للطباعة</span>
+            <span className="text-base font-black text-zinc-950 sm:text-lg">شركة لارا للطباعة</span>
             <span className="text-xs font-semibold text-purple-700">Lara Advertising & Printing</span>
           </span>
         </a>
@@ -251,10 +252,10 @@ function Hero() {
         <figure className="relative mx-auto w-full max-w-[540px]">
           <div className="absolute inset-6 rounded-full bg-purple-100 blur-3xl" aria-hidden="true" />
           <img
-            src={heroImage}
+            src={laraLogo}
             width="340"
             height="360"
-            alt="تصميم مطبوعات احترافية من شركة لارا للطباعة في الرياض"
+            alt="شعار شركة لارا للطباعة في الرياض"
             className="relative mx-auto h-auto w-[74%] max-w-[380px] drop-shadow-2xl"
             fetchPriority="high"
           />
@@ -292,7 +293,7 @@ function About() {
         </div>
         <figure className="overflow-hidden rounded-lg border border-purple-100 bg-white shadow-xl shadow-purple-950/5">
           <img
-            src={heroImage}
+            src={laraLogo}
             width="680"
             height="520"
             loading="lazy"
@@ -345,12 +346,12 @@ function Location() {
 
 function Services() {
   return (
-    <section id="services" className="scroll-mt-24 bg-purple-700 text-white">
+    <section id="services" className="scroll-mt-24 bg-slate-100 text-zinc-950">
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
         <div className="max-w-3xl">
-          <p className="mb-3 text-sm font-black text-purple-100">حلول طباعة متكاملة</p>
+          <p className="mb-3 text-sm font-black text-slate-600">حلول طباعة متكاملة</p>
           <h2 className="text-3xl font-black sm:text-4xl">خدماتنا</h2>
-          <p className="mt-5 text-lg leading-9 text-purple-50">
+          <p className="mt-5 text-lg leading-9 text-slate-700">
             نقدم printing services Riyadh وخدمات عربية متخصصة تشمل الدعاية، التغليف،
             البنرات، الستكرات، والمطبوعات التجارية بجودة تناسب حضور علامتك.
           </p>
@@ -361,7 +362,7 @@ function Services() {
             return (
               <article
                 key={service.title}
-                className="group rounded-lg bg-white p-5 text-zinc-950 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-purple-950/25"
+                className="group rounded-lg bg-white p-5 text-zinc-950 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-slate-950/15"
               >
                 <span className="grid h-12 w-12 place-items-center rounded-md bg-purple-50 text-purple-700 transition group-hover:bg-purple-700 group-hover:text-white">
                   <Icon aria-hidden="true" className="h-5 w-5" />
@@ -378,6 +379,8 @@ function Services() {
 }
 
 function Contact() {
+  const [showPhone, setShowPhone] = useState(false)
+
   return (
     <section id="contact" className="scroll-mt-24 bg-white">
       <div className="mx-auto max-w-5xl px-4 py-16 text-center sm:px-6 lg:px-8 lg:py-24">
@@ -389,14 +392,25 @@ function Contact() {
           أخبرنا بنوع الطباعة، الكمية، المقاس، والخامة المطلوبة، وسيساعدك فريق لارا
           في اختيار الحل الأنسب لمشروعك التجاري أو الإعلاني.
         </p>
-        <div className="mt-8 flex justify-center">
+        <div className="mt-8 flex justify-center gap-4 flex-wrap">
           <a
             href="tel:+966531659055"
+            onClick={() => setShowPhone(true)}
             className="inline-flex min-h-14 w-full max-w-sm items-center justify-center gap-3 rounded-md border border-purple-200 bg-purple-50 px-6 text-lg font-black text-purple-900 transition hover:border-purple-700 hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-700 sm:w-auto"
-            aria-label={`اتصل بشركة لارا على ${phoneDisplay}`}
+            aria-label="اتصل بشركة لارا"
           >
             <FaPhoneAlt aria-hidden="true" className="h-5 w-5" />
-            <span dir="ltr">{phoneDisplay}</span>
+            <span>{showPhone ? phoneDisplay : 'اتصل بنا'}</span>
+          </a>
+          <a
+            href={whatsappUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex min-h-14 items-center justify-center gap-3 rounded-md bg-green-500 px-6 text-lg font-black text-white transition hover:bg-green-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-500 sm:w-auto"
+            aria-label="تواصل مع شركة لارا عبر واتساب"
+          >
+            <FaWhatsapp aria-hidden="true" className="h-5 w-5" />
+            <span>واتساب</span>
           </a>
         </div>
       </div>
@@ -411,7 +425,7 @@ function FloatingWhatsapp() {
       target="_blank"
       rel="noreferrer"
       aria-label="تواصل مع شركة لارا عبر واتساب"
-      className="fixed bottom-4 right-4 z-50 grid h-14 w-14 place-items-center rounded-full bg-purple-700 text-white shadow-2xl shadow-purple-950/25 transition hover:scale-105 hover:bg-purple-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-700"
+      className="fixed bottom-4 right-4 z-50 grid h-14 w-14 place-items-center rounded-full bg-green-500 text-white shadow-2xl shadow-green-950/25 transition hover:scale-105 hover:bg-green-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-500"
     >
       <FaWhatsapp aria-hidden="true" className="h-7 w-7" />
     </a>
@@ -422,6 +436,7 @@ function Footer() {
   return (
     <footer className="border-t border-purple-100 bg-purple-50 px-4 py-8 text-center text-sm font-semibold text-zinc-600">
       <p>شركة لارا للدعاية والإعلان والطباعة - خدمات الطباعة في الرياض</p>
+      <p className="mt-3">جميع الحقوق محفوظة © شركة لارا للطباعة</p>
     </footer>
   )
 }
