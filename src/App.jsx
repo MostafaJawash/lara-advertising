@@ -2,22 +2,22 @@ import { Helmet, HelmetProvider } from 'react-helmet-async'
 import { useState } from 'react'
 import {
   FaArrowRight,
-  FaBoxOpen,
-  FaBriefcase,
-  FaBullhorn,
-  FaEnvelopeOpenText,
-  FaGift,
   FaMapMarkerAlt,
-  FaMugHot,
   FaPhoneAlt,
   FaPrint,
-  FaRegAddressCard,
-  FaShoppingBag,
-  FaTags,
   FaWhatsapp,
 } from 'react-icons/fa'
-import { MdArticle, MdLocalShipping, MdOutlineInventory2 } from 'react-icons/md'
 import laraLogo from '../Lara.png'
+import stickersSGImage from '../ستيكرات SG.png'
+import boxesImage from '../بوكسات.png'
+import giftBoxesImage from '../بوكسات هدايا دعائية.png'
+import sealsImage from '../أختام.png'
+import cupsImage from '../اكواب.png'
+import acrylicImage from '../اكرليك.png'
+import bagsImage from '../اكياس قماش وكرتون.png'
+import flagsImage from '../اعلام.png'
+import brandIdentityImage from '../هوية بصرية كاملة.png'
+import bannerStandImage from '../لوحات بنر وستاند آب.png'
 
 const whatsappNumber = '966531659055'
 const phoneDisplay = '+966 53 165 9055'
@@ -34,66 +34,16 @@ const navLinks = [
 ]
 
 const services = [
-  {
-    title: 'طباعة بوكسات',
-    description: 'بوكسات مخصصة للمتاجر والهدايا والشحن بخامات قوية وتشطيبات أنيقة.',
-    icon: FaBoxOpen,
-  },
-  {
-    title: 'طباعة ستكرات الرياض',
-    description: 'ستكرات منتجات، ملصقات تغليف، وملصقات مقاومة حسب المقاس والكمية.',
-    icon: FaTags,
-  },
-  {
-    title: 'لوحات بنر الرياض',
-    description: 'بنرات خارجية وداخلية للواجهات، الفعاليات، والمعارض مع خيارات تركيب.',
-    icon: FaBullhorn,
-  },
-  {
-    title: 'كروت شخصية',
-    description: 'كروت شخصية للشركات والأفراد بتصميم واضح وورق فاخر يليق بهويتك.',
-    icon: FaRegAddressCard,
-  },
-  {
-    title: 'بروشورات وفلايرات',
-    description: 'مواد تسويقية مطبوعة تساعدك على عرض منتجاتك وخدماتك باحتراف.',
-    icon: MdArticle,
-  },
-  {
-    title: 'تغليف ومنتجات تعبئة',
-    description: 'حلول تغليف للمتاجر والمطاعم والمنتجات التجارية بمظهر متناسق.',
-    icon: MdOutlineInventory2,
-  },
-  {
-    title: 'أكياس قماش وكرتون',
-    description: 'أكياس مطبوعة للمتاجر والمعارض بأحجام وخامات مناسبة لعلامتك.',
-    icon: FaShoppingBag,
-  },
-  {
-    title: 'هدايا دعائية',
-    description: 'هدايا مكتبية وترويجية مطبوعة لتعزيز حضور شركتك في المناسبات.',
-    icon: FaGift,
-  },
-  {
-    title: 'طباعة أكواب',
-    description: 'أكواب دعائية وهدايا عملية بطباعة نظيفة مناسبة للشركات والفعاليات.',
-    icon: FaMugHot,
-  },
-  {
-    title: 'أظرف ومراسلات',
-    description: 'أظرف وهوية ورقية رسمية للمراسلات والعروض والملفات اليومية.',
-    icon: FaEnvelopeOpenText,
-  },
-  {
-    title: 'بروفايل شركات',
-    description: 'تصميم وطباعة بروفايلات تعريفية تعرض خدماتك وإنجازاتك بشكل موثوق.',
-    icon: FaBriefcase,
-  },
-  {
-    title: 'توصيل وتركيب',
-    description: 'تنسيق سريع لتوصيل المطبوعات وتركيب البنرات داخل الرياض حسب الطلب.',
-    icon: MdLocalShipping,
-  },
+  { title: 'ستيكرات SG', image: stickersSGImage },
+  { title: 'بوكسات', image: boxesImage },
+  { title: 'بوكسات هدايا دعائية', image: giftBoxesImage },
+  { title: 'أختام', image: sealsImage },
+  { title: 'اكواب', image: cupsImage },
+  { title: 'اكرليك', image: acrylicImage },
+  { title: 'اكياس قماش وكرتون', image: bagsImage },
+  { title: 'اعلام', image: flagsImage },
+  { title: 'هوية بصرية كاملة', image: brandIdentityImage },
+  { title: 'لوحات بنر وستاند آب', image: bannerStandImage },
 ]
 
 const localBusinessSchema = {
@@ -352,19 +302,24 @@ function Services() {
             البنرات، الستكرات، والمطبوعات التجارية بجودة تناسب حضور علامتك.
           </p>
         </div>
-        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
           {services.map((service) => {
-            const Icon = service.icon
             return (
               <article
                 key={service.title}
-                className="group rounded-lg bg-white p-5 text-zinc-950 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-slate-950/15"
+                className="group overflow-hidden rounded-2xl border border-slate-200 bg-white p-3 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-slate-950/10"
               >
-                <span className="grid h-12 w-12 place-items-center rounded-md bg-purple-50 text-purple-700 transition group-hover:bg-purple-700 group-hover:text-white">
-                  <Icon aria-hidden="true" className="h-5 w-5" />
-                </span>
-                <h3 className="mt-5 text-xl font-black">{service.title}</h3>
-                <p className="mt-3 text-sm leading-7 text-zinc-600">{service.description}</p>
+                <div className="flex aspect-square items-center justify-center rounded-xl bg-slate-50 p-3">
+                  <img
+                    src={service.image}
+                    alt={service.title}
+                    loading="lazy"
+                    className="h-full w-full object-contain transition duration-300 group-hover:scale-[1.03]"
+                  />
+                </div>
+                <h3 className="mt-3 text-center text-sm font-bold leading-6 text-zinc-900 sm:text-base">
+                  {service.title}
+                </h3>
               </article>
             )
           })}
