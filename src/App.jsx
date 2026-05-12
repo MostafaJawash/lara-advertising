@@ -10,7 +10,7 @@ import {
 import laraLogo from '../lara_no_bg.png'
 import heroFeatureImage from '../mmmm.png'
 import stickersSGImage from '../ستيكرات SG.png'
-import boxesImage from '../بوكسات.png'
+import boxesImage from '../بوكسات11.png'
 import giftBoxesImage from '../بوكسات هدايا دعائية11 (3).png'
 import sealsImage from '../أختام.png'
 import cupsImage from '../اكواب.png'
