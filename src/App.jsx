@@ -52,9 +52,11 @@ const localBusinessSchema = {
   name: 'شركة لارا للدعاية والإعلان والطباعة',
   alternateName: 'Lara Advertising & Printing',
   description:
-    'شركة طباعة في الرياض تقدم خدمات طباعة بوكسات، ستكرات، لوحات بنر، كروت شخصية، بروشورات، مواد دعائية، وتغليف للشركات والأفراد.',
-  url: 'https://lara-advertising.local/',
+    'شركة طباعة ودعاية وإعلان في الرياض تقدم خدمات طباعة ستكرات، بنرات، بوكسات، أختام، أكواب، أكريليك، وهويات بصرية للشركات والمتاجر.',
+  url: 'https://lara-advertising-printing.vercel.app/',
+  logo: 'https://lara-advertising-printing.vercel.app/Lara.png',
   telephone: '+966531659055',
+  image: 'https://lara-advertising-printing.vercel.app/Lara.png',
   areaServed: {
     '@type': 'City',
     name: 'Riyadh',
@@ -79,14 +81,35 @@ const localBusinessSchema = {
     availableLanguage: ['Arabic', 'English'],
   },
   keywords:
-    'خدمات الطباعة في الرياض, مطابع الرياض, الطباعة في الرياض, طباعة ستكرات الرياض, لوحات بنر الرياض, printing services Riyadh',
-  sameAs: [mapsUrl],
+    'مطابع الرياض, خدمات الطباعة في الرياض, طباعة بنرات الرياض, طباعة ستكرات الرياض, تصميم وطباعة بالرياض, بروشورات وكروت شخصية, لوحات إعلانية الرياض, printing services Riyadh, banner printing Riyadh, sticker printing Riyadh',
+  serviceType: [
+    'Printing service',
+    'Sticker printing',
+    'Banner printing',
+    'Business cards printing',
+    'Brochure printing',
+  ],
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'خدمات الطباعة والدعاية والإعلان',
+    itemListElement: services.map((service, index) => ({
+      '@type': 'Offer',
+      itemOffered: {
+        '@type': 'Service',
+        name: service.title,
+      },
+      position: index + 1,
+    })),
+  },
+  sameAs: [mapsUrl, 'https://lara-advertising-printing.vercel.app/'],
 }
 
 function Seo() {
-  const title = 'شركة لارا للطباعة'
+  const title = 'مطابع الرياض | خدمات الطباعة والدعاية والإعلان بالرياض | شركة لارا للطباعة'
   const description =
-    'شركة لارا للدعاية والإعلان والطباعة تقدم خدمات الطباعة في الرياض: طباعة ستكرات، لوحات بنر، بوكسات، كروت شخصية، بروشورات، وتغليف احترافي.'
+    'شركة لارا للطباعة تقدم خدمات الطباعة والدعاية والإعلان في الرياض: طباعة ستكرات، بنرات، بوكسات، أختام، أكواب، أكريليك، هويات بصرية، وبروشورات وكروت شخصية للشركات والمتاجر.'
+  const canonicalUrl = 'https://lara-advertising-printing.vercel.app/'
+  const socialImage = `${canonicalUrl}Lara.png`
 
   return (
     <Helmet>
@@ -99,22 +122,28 @@ function Seo() {
       <meta name="description" content={description} />
       <meta
         name="keywords"
-        content="خدمات الطباعة في الرياض, مطابع الرياض, الطباعة في الرياض, طباعة ستكرات الرياض, لوحات بنر الرياض, printing services Riyadh"
+        content="مطابع الرياض, خدمات الطباعة في الرياض, طباعة بنرات الرياض, طباعة ستكرات الرياض, تصميم وطباعة بالرياض, بروشورات وكروت شخصية, لوحات إعلانية الرياض, printing services Riyadh, banner printing Riyadh, sticker printing Riyadh"
       />
       <meta name="robots" content="index, follow" />
       <meta name="author" content="شركة لارا للدعاية والإعلان والطباعة" />
       <meta name="theme-color" content="#6D28D9" />
-      <link rel="canonical" href="https://lara-advertising.local/" />
+      <link rel="canonical" href={canonicalUrl} />
       <meta property="og:locale" content="ar_SA" />
       <meta property="og:type" content="website" />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:site_name" content="شركة لارا للدعاية والإعلان والطباعة" />
-      <meta property="og:image" content="/favicon.svg" />
+      <meta property="og:url" content={canonicalUrl} />
+      <meta property="og:image" content={socialImage} />
+      <meta property="og:image:alt" content="شركة لارا للطباعة - خدمات الطباعة والدعاية والإعلان في الرياض" />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content="/favicon.svg" />
+      <meta name="twitter:image" content={socialImage} />
+      <meta name="twitter:image:alt" content="شركة لارا للطباعة - خدمات الطباعة والدعاية والإعلان في الرياض" />
+      <meta name="twitter:url" content={canonicalUrl} />
       <script type="application/ld+json">{JSON.stringify(localBusinessSchema)}</script>
     </Helmet>
   )
@@ -176,13 +205,18 @@ function Hero() {
     <section id="home" className="scroll-mt-24 bg-white">
       <div className="mx-auto grid min-h-[calc(100svh-68px)] max-w-7xl items-center gap-10 px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
         <div>
-          <SectionEyebrow>شركة لارا للدعاية والإعلان والطباعة</SectionEyebrow>
+          <SectionEyebrow>شركة لارا للطباعة في الرياض</SectionEyebrow>
           <h1 className="max-w-4xl text-4xl font-black leading-tight text-zinc-950 sm:text-5xl lg:text-6xl">
-            خدمات الطباعة في الرياض للشركات والمتاجر بجودة احترافية
+            مطابع الرياض وخدمات الطباعة والدعاية والإعلان بجودة احترافية للشركات والمتاجر
           </h1>
-          <p className="mt-5 max-w-2xl text-lg font-bold leading-8 text-zinc-700 sm:text-xl">
-            مطابع الرياض التي تجمع بين التصميم، الطباعة، التغليف، البنرات، وطباعة
-            ستكرات الرياض في تجربة سريعة ومنظمة تناسب احتياجك التجاري.
+          <p className="mt-5 max-w-2xl text-lg leading-8 text-zinc-700 sm:text-xl">
+            إذا كنت تبحث عن خدمات الطباعة في الرياض أو مطابع الرياض لتنفيذ ستكرات،
+            بنرات، بوكسات، أختام، أكواب، بروشورات، وكروت شخصية، فنحن نقدم حلولًا
+            عملية تجمع بين التصميم والطباعة والتسليم بشكل منظم ومناسب لاحتياجك التجاري.
+          </p>
+          <p className="mt-4 max-w-2xl text-base leading-8 text-zinc-600 sm:text-lg">
+            نساعد الشركات والمتاجر على إبراز هويتها عبر تصميم وطباعة بالرياض بجودة
+            واضحة، تنفيذ سريع، ومخرجات مناسبة للحملات الإعلانية والمنتجات والمعارض.
           </p>
           <figure className="relative mx-auto mt-8 w-full max-w-[540px]">
             <img
@@ -220,20 +254,22 @@ function About() {
     <section id="about" className="scroll-mt-24 bg-purple-50">
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:px-8 lg:py-24">
         <div>
-          <SectionEyebrow>مطابع الرياض بخدمة منظمة</SectionEyebrow>
+          <SectionEyebrow>مطابع الرياض بخدمة احترافية</SectionEyebrow>
           <h2 className="text-3xl font-black text-zinc-950 sm:text-4xl">من نحن</h2>
           <div className="mt-6 space-y-5 text-lg leading-9 text-zinc-700">
             <p>
-              شركة لارا للدعاية والإعلان والطباعة تقدم حلول طباعة في الرياض للشركات،
-              المتاجر، ورواد الأعمال، من الفكرة والتصميم حتى التسليم النهائي.
+              شركة لارا للطباعة تقدم خدمات الطباعة والدعاية والإعلان في الرياض للشركات
+              والمتاجر ورواد الأعمال، من الفكرة والتصميم وحتى التسليم النهائي بشكل
+              احترافي ومنسق.
             </p>
             <p>
-              نركز على جودة الخامة، وضوح الألوان، ودقة التشطيب في طباعة البوكسات،
-              الستكرات، لوحات البنر، الكروت الشخصية، البروشورات، ومواد التغليف.
+              نركز على جودة الخامة، وضوح الألوان، ودقة التشطيب في طباعة ستكرات الرياض،
+              طباعة بنرات الرياض، البوكسات، الأختام، الأكواب، الأكرليك، البروشورات،
+              والكروت الشخصية حتى تظهر علامتك بشكل قوي ومقنع.
             </p>
             <p>
               هدفنا أن يحصل العميل على مطبوعات عملية تعكس هوية علامته التجارية وتخدم
-              حملاته اليومية والمعارض والمناسبات داخل الرياض.
+              حملاته اليومية والمعارض والمناسبات داخل الرياض وتدعم حضوره الرقمي والميداني.
             </p>
           </div>
         </div>
@@ -243,7 +279,7 @@ function About() {
             width="680"
             height="520"
             loading="lazy"
-            alt="خدمات الطباعة في الرياض من شركة لارا للدعاية والإعلان والطباعة"
+            alt="شعار شركة لارا للطباعة وخدمات الطباعة والدعاية والإعلان في الرياض"
             className="h-full min-h-[280px] w-full object-contain p-8"
           />
         </figure>
@@ -261,8 +297,8 @@ function Location() {
           <h2 className="text-3xl font-black text-zinc-950 sm:text-4xl">موقعنا في الرياض</h2>
           <p className="mt-5 text-lg leading-9 text-zinc-700">
             نخدم جميع أحياء الرياض بخدمات طباعة سريعة وواضحة للشركات والمتاجر. يمكنك
-            طلب طباعة ستكرات الرياض، لوحات بنر الرياض، البوكسات، والتغليف مع تنسيق
-            التوصيل أو التركيب حسب احتياج المشروع.
+            طلب طباعة ستكرات الرياض، طباعة بنرات الرياض، البوكسات، الهوية البصرية،
+            والتغليف مع تنسيق التوصيل أو التركيب حسب احتياج المشروع.
           </p>
           <a
             href={mapsUrl}
@@ -298,8 +334,9 @@ function Services() {
           <p className="mb-3 text-sm font-black text-slate-600">حلول طباعة متكاملة</p>
           <h2 className="text-3xl font-black sm:text-4xl">خدماتنا</h2>
           <p className="mt-5 text-lg leading-9 text-slate-700">
-            نقدم printing services Riyadh وخدمات عربية متخصصة تشمل الدعاية، التغليف،
-            البنرات، الستكرات، والمطبوعات التجارية بجودة تناسب حضور علامتك.
+            نقدم printing services Riyadh وخدمات عربية متخصصة تشمل مطابع الرياض،
+            طباعة بنرات الرياض، طباعة ستكرات الرياض، تصميم وطباعة بالرياض، البوكسات،
+            الهوية البصرية، والأعمال الدعائية بجودة تناسب حضور علامتك.
           </p>
         </div>
         <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
@@ -320,6 +357,9 @@ function Services() {
                 <h3 className="mt-3 text-center text-sm font-bold leading-6 text-zinc-900 sm:text-base">
                   {service.title}
                 </h3>
+                <p className="mt-2 text-center text-xs leading-6 text-zinc-600 sm:text-sm">
+                  حل مناسب للشركات والمتاجر الباحثة عن خدمات طباعة ودعاية وإعلان في الرياض.
+                </p>
               </article>
             )
           })}
@@ -343,11 +383,12 @@ function Contact() {
       <div className="mx-auto max-w-5xl px-4 py-16 text-center sm:px-6 lg:px-8 lg:py-24">
         <SectionEyebrow>تواصل معنا</SectionEyebrow>
         <h2 className="text-3xl font-black text-zinc-950 sm:text-4xl">
-          احصل على عرض مناسب لخدمات الطباعة في الرياض
+          احصل على عرض مناسب لخدمات الطباعة والدعاية والإعلان في الرياض
         </h2>
         <p className="mx-auto mt-5 max-w-3xl text-lg leading-9 text-zinc-700">
           أخبرنا بنوع الطباعة، الكمية، المقاس، والخامة المطلوبة، وسيساعدك فريق لارا
-          في اختيار الحل الأنسب لمشروعك التجاري أو الإعلاني.
+          في اختيار الحل الأنسب لمشروعك التجاري أو الإعلاني بما يناسب مطابع الرياض
+          وخدمات الطباعة في الرياض للشركات والمتاجر.
         </p>
         <div className="mt-8 flex flex-wrap justify-center gap-4">
           <div className="flex w-full max-w-sm items-center justify-center sm:w-auto">
