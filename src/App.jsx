@@ -7,14 +7,17 @@ import {
   FaPrint,
   FaWhatsapp,
 } from 'react-icons/fa'
-import laraLogo from '../Lara.png'
+import laraLogo from '../laraaa.png'
+import heroFeatureImage from '../mmmm.png'
 import stickersSGImage from '../ستيكرات SG.png'
 import boxesImage from '../بوكسات هدايا دعائية11 (2).png'
-import giftBoxesImage from '../بوكسات هدايا دعائية11.png'
+import giftBoxesImage from '../بوكسات هدايا دعائية11 (3).png'
 import sealsImage from '../أختام.png'
 import cupsImage from '../اكواب.png'
 import acrylicImage from '../اكرليك.png'
-import bagsImage from '../اكياس قماش وكرتون.png'
+import bagsImage from '../اكياس قماش وكرتون111.png'
+import paperBagsImage from '../اكياس ورقية طباعة لون واحد.jpeg'
+import plasticCupsImage from '../اكواب بلاستيك طباعة لون واحد.jpeg'
 import flagsImage from '../اعلام.png'
 import brandIdentityImage from '../هوية بصرية كاملة.png'
 import bannerStandImage from '../لوحات بنر وستاند آب.png'
@@ -41,6 +44,8 @@ const services = [
   { title: 'اكواب', image: cupsImage },
   { title: 'اكرليك', image: acrylicImage },
   { title: 'اكياس قماش وكرتون', image: bagsImage },
+  { title: 'اكياس ورقية طباعة لون واحد', image: paperBagsImage },
+  { title: 'اكواب بلاستيك طباعة لون واحد', image: plasticCupsImage },
   { title: 'اعلام', image: flagsImage },
   { title: 'هوية بصرية كاملة', image: brandIdentityImage },
   { title: 'لوحات بنر وستاند آب', image: bannerStandImage },
@@ -54,9 +59,9 @@ const localBusinessSchema = {
   description:
     'شركة طباعة ودعاية وإعلان في الرياض تقدم خدمات طباعة ستكرات، بنرات، بوكسات، أختام، أكواب، أكريليك، وهويات بصرية للشركات والمتاجر.',
   url: 'https://lara-advertising-printing.vercel.app/',
-  logo: 'https://lara-advertising-printing.vercel.app/Lara.png',
+  logo: 'https://lara-advertising-printing.vercel.app/laraaa.png',
   telephone: '+966531659055',
-  image: 'https://lara-advertising-printing.vercel.app/Lara.png',
+  image: 'https://lara-advertising-printing.vercel.app/laraaa.png',
   areaServed: {
     '@type': 'City',
     name: 'Riyadh',
@@ -105,11 +110,11 @@ const localBusinessSchema = {
 }
 
 function Seo() {
-  const title = 'مطابع الرياض | خدمات الطباعة والدعاية والإعلان بالرياض | شركة لارا للطباعة'
+  const title = 'شركة لارا للطباعة'
   const description =
     'شركة لارا للطباعة تقدم خدمات الطباعة والدعاية والإعلان في الرياض: طباعة ستكرات، بنرات، بوكسات، أختام، أكواب، أكريليك، هويات بصرية، وبروشورات وكروت شخصية للشركات والمتاجر.'
   const canonicalUrl = 'https://lara-advertising-printing.vercel.app/'
-  const socialImage = `${canonicalUrl}Lara.png`
+  const socialImage = `${canonicalUrl}laraaa.png`
 
   return (
     <Helmet>
@@ -126,7 +131,7 @@ function Seo() {
       />
       <meta name="robots" content="index, follow" />
       <meta name="author" content="شركة لارا للدعاية والإعلان والطباعة" />
-      <meta name="theme-color" content="#6D28D9" />
+      <meta name="theme-color" content="#B91C1C" />
       <link rel="canonical" href={canonicalUrl} />
       <meta property="og:locale" content="ar_SA" />
       <meta property="og:type" content="website" />
@@ -151,7 +156,7 @@ function Seo() {
 
 function Header() {
   return (
-    <header className="sticky top-0 z-40 border-b border-purple-100 bg-white/95 backdrop-blur">
+    <header className="sticky top-0 z-40 border-b border-red-100 bg-white/95 backdrop-blur">
       <nav
         className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8"
         aria-label="التنقل الرئيسي"
@@ -162,7 +167,7 @@ function Header() {
           </span>
           <span className="flex min-w-0 flex-col gap-0.5 leading-tight">
             <span className="text-sm font-semibold text-zinc-900 sm:text-base">شركة لارا للطباعة</span>
-            <span className="text-xs font-semibold text-purple-700">Lara Advertising & Printing</span>
+            <span className="text-xs font-semibold text-red-700">Lara Advertising & Printing</span>
           </span>
         </a>
         <ul className="hidden items-center gap-1 md:flex">
@@ -170,7 +175,7 @@ function Header() {
             <li key={link.href}>
               <a
                 href={link.href}
-                className="rounded-md px-3 py-2 text-sm font-bold text-zinc-700 transition hover:bg-purple-50 hover:text-purple-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-700"
+                className="rounded-md px-3 py-2 text-sm font-bold text-zinc-700 transition hover:bg-red-50 hover:text-red-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-700"
               >
                 {link.label}
               </a>
@@ -178,13 +183,13 @@ function Header() {
           ))}
         </ul>
       </nav>
-      <div className="border-t border-purple-50 md:hidden">
+      <div className="border-t border-red-50 md:hidden">
         <ul className="mx-auto flex max-w-7xl gap-1 overflow-x-auto px-4 py-2 sm:px-6" aria-label="روابط الأقسام">
           {navLinks.map((link) => (
             <li key={link.href} className="shrink-0">
               <a
                 href={link.href}
-                className="inline-flex h-9 items-center rounded-md bg-purple-50 px-3 text-sm font-bold text-purple-800"
+                className="inline-flex h-9 items-center rounded-md bg-red-50 px-3 text-sm font-bold text-red-800"
               >
                 {link.label}
               </a>
@@ -197,7 +202,7 @@ function Header() {
 }
 
 function SectionEyebrow({ children }) {
-  return <p className="mb-4 text-base font-extrabold tracking-tight text-purple-700 sm:text-lg">{children}</p>
+  return <p className="mb-4 text-base font-extrabold tracking-tight text-red-700 sm:text-lg">{children}</p>
 }
 
 function Hero() {
@@ -220,10 +225,10 @@ function Hero() {
           </p>
           <figure className="relative mx-auto mt-8 w-full max-w-[540px]">
             <img
-              src={laraLogo}
+              src={heroFeatureImage}
               width="340"
               height="360"
-              alt="شعار شركة لارا للطباعة في الرياض"
+              alt="خدمات الطباعة والدعاية والإعلان من شركة لارا للطباعة في الرياض"
               className="relative mx-auto h-auto w-[74%] max-w-[380px] drop-shadow-2xl"
               fetchPriority="high"
             />
@@ -231,14 +236,14 @@ function Hero() {
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <a
               href="#services"
-              className="inline-flex h-14 items-center justify-center gap-3 rounded-md bg-purple-700 px-7 text-base font-black text-white shadow-lg shadow-purple-950/15 transition hover:-translate-y-0.5 hover:bg-purple-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-700"
+              className="inline-flex h-14 items-center justify-center gap-3 rounded-md bg-red-700 px-7 text-base font-black text-white shadow-lg shadow-red-950/15 transition hover:-translate-y-0.5 hover:bg-red-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-700"
             >
               <FaPrint aria-hidden="true" className="h-5 w-5" />
               تصفح خدماتنا
             </a>
             <a
               href="#contact"
-              className="inline-flex h-14 items-center justify-center rounded-md border border-purple-200 px-7 text-base font-black text-purple-800 transition hover:border-purple-700 hover:bg-purple-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-700"
+              className="inline-flex h-14 items-center justify-center rounded-md border border-red-200 px-7 text-base font-black text-red-800 transition hover:border-red-700 hover:bg-red-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-700"
             >
               معلومات التواصل
             </a>
@@ -251,7 +256,7 @@ function Hero() {
 
 function About() {
   return (
-    <section id="about" className="scroll-mt-24 bg-purple-50">
+    <section id="about" className="scroll-mt-24 bg-red-50">
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:px-8 lg:py-24">
         <div>
           <SectionEyebrow>مطابع الرياض بخدمة احترافية</SectionEyebrow>
@@ -263,7 +268,7 @@ function About() {
               احترافي ومنسق.
             </p>
             <p>
-              نركز على جودة الخامة، وضوح الألوان، ودقة التشطيب في طباعة ستكرات الرياض،
+              نركز على جودة الخامة، وضوح الألوان، ودقة في طباعة ستكرات الرياض،
               طباعة بنرات الرياض، البوكسات، الأختام، الأكواب، الأكرليك، البروشورات،
               والكروت الشخصية حتى تظهر علامتك بشكل قوي ومقنع.
             </p>
@@ -273,7 +278,7 @@ function About() {
             </p>
           </div>
         </div>
-        <figure className="overflow-hidden rounded-lg border border-purple-100 bg-white shadow-xl shadow-purple-950/5">
+        <figure className="overflow-hidden rounded-lg border border-red-100 bg-white shadow-xl shadow-red-950/5">
           <img
             src={laraLogo}
             width="680"
@@ -304,13 +309,13 @@ function Location() {
             href={mapsUrl}
             target="_blank"
             rel="noreferrer"
-            className="mt-8 inline-flex h-12 items-center justify-center gap-2 rounded-md border border-purple-200 px-5 text-sm font-black text-purple-800 transition hover:border-purple-700 hover:bg-purple-50"
+            className="mt-8 inline-flex h-12 items-center justify-center gap-2 rounded-md border border-red-200 px-5 text-sm font-black text-red-800 transition hover:border-red-700 hover:bg-red-50"
           >
             <FaMapMarkerAlt aria-hidden="true" className="h-4 w-4" />
             فتح الموقع على خرائط Google
           </a>
         </div>
-        <div className="overflow-hidden rounded-lg border border-purple-100 shadow-xl shadow-purple-950/5">
+        <div className="overflow-hidden rounded-lg border border-red-100 shadow-xl shadow-red-950/5">
           <iframe
             title="موقع شركة لارا للدعاية والإعلان والطباعة في الرياض"
             src="https://www.google.com/maps?q=Riyadh%2C%20Saudi%20Arabia&output=embed"
@@ -397,14 +402,14 @@ function Contact() {
               onClick={revealPhone}
               onPointerDown={revealPhone}
               onPointerMove={revealPhone}
-              className="inline-flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-purple-300 bg-white text-purple-700 transition hover:bg-purple-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-700"
+              className="inline-flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-red-300 bg-white text-red-700 transition hover:bg-red-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-700"
               aria-label="إظهار رقم الهاتف"
             >
               <FaArrowRight aria-hidden="true" className="h-5 w-5" />
             </button>
             <a
               href="tel:+966531659055"
-              className={`inline-flex h-14 items-center justify-center overflow-hidden whitespace-nowrap rounded-md border border-purple-200 bg-purple-50 text-lg font-bold text-purple-900 transition-all duration-500 ease-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-700 ${
+              className={`inline-flex h-14 items-center justify-center overflow-hidden whitespace-nowrap rounded-md border border-red-200 bg-red-50 text-lg font-bold text-red-900 transition-all duration-500 ease-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-700 ${
                 showPhone
                   ? 'mr-3 max-w-sm translate-x-0 px-6 opacity-100'
                   : 'mr-0 max-w-0 translate-x-6 px-0 opacity-0 pointer-events-none'
@@ -447,7 +452,7 @@ function FloatingWhatsapp() {
 
 function Footer() {
   return (
-    <footer className="border-t border-purple-100 bg-purple-50 px-4 py-8 text-center text-sm font-semibold text-zinc-600">
+    <footer className="border-t border-red-100 bg-red-50 px-4 py-8 text-center text-sm font-semibold text-zinc-600">
       <p>شركة لارا للدعاية والإعلان والطباعة - خدمات الطباعة في الرياض</p>
       <p className="mt-3">جميع الحقوق محفوظة © شركة لارا للطباعة</p>
     </footer>
