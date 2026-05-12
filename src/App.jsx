@@ -7,8 +7,8 @@ import {
   FaPrint,
   FaWhatsapp,
 } from 'react-icons/fa'
-import laraLogo from '../laraaa.png'
-import heroFeatureImage from '../mmmm.png'
+import laraLogo from '../لارا.jpeg'
+import heroFeatureImage from '../لارا.jpeg'
 import stickersSGImage from '../ستيكرات SG.png'
 import boxesImage from '../بوكسات هدايا دعائية11 (2).png'
 import giftBoxesImage from '../بوكسات هدايا دعائية11 (3).png'
@@ -59,9 +59,9 @@ const localBusinessSchema = {
   description:
     'شركة طباعة ودعاية وإعلان في الرياض تقدم خدمات طباعة ستكرات، بنرات، بوكسات، أختام، أكواب، أكريليك، وهويات بصرية للشركات والمتاجر.',
   url: 'https://lara-advertising-printing.vercel.app/',
-  logo: 'https://lara-advertising-printing.vercel.app/laraaa.png',
+  logo: 'https://lara-advertising-printing.vercel.app/لارا.jpeg',
   telephone: '+966531659055',
-  image: 'https://lara-advertising-printing.vercel.app/laraaa.png',
+  image: 'https://lara-advertising-printing.vercel.app/لارا.jpeg',
   areaServed: {
     '@type': 'City',
     name: 'Riyadh',
@@ -162,8 +162,8 @@ function Header() {
         aria-label="التنقل الرئيسي"
       >
         <a href="#home" className="flex min-w-0 items-center gap-3" aria-label="شركة لارا الرئيسية">
-          <span className="grid h-11 w-11 place-items-center overflow-hidden rounded-md border border-slate-200 bg-white">
-            <img src={laraLogo} alt="شعار شركة لارا" className="h-full w-full object-cover" />
+          <span className="grid h-10 w-10 place-items-center">
+            <img src={laraLogo} alt="شعار شركة لارا" className="h-full w-full object-contain" />
           </span>
           <span className="flex min-w-0 flex-col gap-0.5 leading-tight">
             <span className="text-sm font-semibold text-zinc-900 sm:text-base">شركة لارا للطباعة</span>
@@ -278,14 +278,14 @@ function About() {
             </p>
           </div>
         </div>
-        <figure className="overflow-hidden rounded-lg border border-red-100 bg-white shadow-xl shadow-red-950/5">
+        <figure>
           <img
             src={laraLogo}
             width="680"
             height="520"
             loading="lazy"
             alt="شعار شركة لارا للطباعة وخدمات الطباعة والدعاية والإعلان في الرياض"
-            className="h-full min-h-[280px] w-full object-contain p-8"
+            className="h-auto w-full object-contain"
           />
         </figure>
       </div>
