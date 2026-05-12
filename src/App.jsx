@@ -2,6 +2,7 @@ import { Helmet, HelmetProvider } from 'react-helmet-async'
 import { useState } from 'react'
 import {
   FaArrowRight,
+  FaInstagram,
   FaMapMarkerAlt,
   FaPhoneAlt,
   FaPrint,
@@ -27,6 +28,7 @@ const phoneDisplay = '+966 53 165 9055'
 const whatsappMessage = encodeURIComponent('مرحبا، أريد الاستفسار عن خدمات الطباعة')
 const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`
 const mapsUrl = 'https://maps.app.goo.gl/9UKAhYHehobnTfCp9?g_st=iwb'
+const instagramUrl = 'https://www.instagram.com/laraprintp/'
 
 const navLinks = [
   { href: '#home', label: 'الرئيسية' },
@@ -106,7 +108,7 @@ const localBusinessSchema = {
       position: index + 1,
     })),
   },
-  sameAs: [mapsUrl, 'https://lara-advertising-printing.vercel.app/'],
+  sameAs: [mapsUrl, instagramUrl, 'https://lara-advertising-printing.vercel.app/'],
 }
 
 function Seo() {
@@ -453,8 +455,20 @@ function FloatingWhatsapp() {
 function Footer() {
   return (
     <footer className="border-t border-red-100 bg-red-50 px-4 py-8 text-center text-sm font-semibold text-zinc-600">
-      <p>شركة لارا للدعاية والإعلان والطباعة - خدمات الطباعة في الرياض</p>
-      <p className="mt-3">جميع الحقوق محفوظة © شركة لارا للطباعة</p>
+      <div className="mx-auto flex max-w-5xl flex-col items-center gap-3">
+        <p>شركة لارا للدعاية والإعلان والطباعة - خدمات الطباعة في الرياض</p>
+        <a
+          href={instagramUrl}
+          target="_blank"
+          rel="noreferrer"
+          className="inline-flex items-center gap-2 rounded-full border border-pink-200 bg-white px-4 py-2 text-sm font-bold text-pink-700 transition hover:bg-pink-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-500"
+          aria-label="زيارة حساب شركة لارا على إنستغرام"
+        >
+          <FaInstagram aria-hidden="true" className="h-4 w-4" />
+          <span>تابعنا على إنستغرام</span>
+        </a>
+        <p>جميع الحقوق محفوظة © شركة لارا للطباعة</p>
+      </div>
     </footer>
   )
 }
