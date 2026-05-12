@@ -7,10 +7,10 @@ import {
   FaPrint,
   FaWhatsapp,
 } from 'react-icons/fa'
-import laraLogo from '../لارا.jpeg'
-import heroFeatureImage from '../لارا.jpeg'
+import laraLogo from '../lara_no_bg.png'
+import heroFeatureImage from '../lara_no_bg.png'
 import stickersSGImage from '../ستيكرات SG.png'
-import boxesImage from '../بوكسات هدايا دعائية11 (2).png'
+import boxesImage from '../بوكسات.png'
 import giftBoxesImage from '../بوكسات هدايا دعائية11 (3).png'
 import sealsImage from '../أختام.png'
 import cupsImage from '../اكواب.png'
@@ -59,9 +59,9 @@ const localBusinessSchema = {
   description:
     'شركة طباعة ودعاية وإعلان في الرياض تقدم خدمات طباعة ستكرات، بنرات، بوكسات، أختام، أكواب، أكريليك، وهويات بصرية للشركات والمتاجر.',
   url: 'https://lara-advertising-printing.vercel.app/',
-  logo: 'https://lara-advertising-printing.vercel.app/لارا.jpeg',
+  logo: 'https://lara-advertising-printing.vercel.app/lara_no_bg.png',
   telephone: '+966531659055',
-  image: 'https://lara-advertising-printing.vercel.app/لارا.jpeg',
+  image: 'https://lara-advertising-printing.vercel.app/lara_no_bg.png',
   areaServed: {
     '@type': 'City',
     name: 'Riyadh',
@@ -162,7 +162,7 @@ function Header() {
         aria-label="التنقل الرئيسي"
       >
         <a href="#home" className="flex min-w-0 items-center gap-3" aria-label="شركة لارا الرئيسية">
-          <span className="grid h-10 w-10 place-items-center">
+          <span className="grid h-9 w-9 place-items-center">
             <img src={laraLogo} alt="شعار شركة لارا" className="h-full w-full object-contain" />
           </span>
           <span className="flex min-w-0 flex-col gap-0.5 leading-tight">
