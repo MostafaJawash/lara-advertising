@@ -8,7 +8,7 @@ import {
   FaWhatsapp,
 } from 'react-icons/fa'
 import laraLogo from '../lara_no_bg.png'
-import heroFeatureImage from '../lara_no_bg.png'
+import heroFeatureImage from '../mmmm.png'
 import stickersSGImage from '../ستيكرات SG.png'
 import boxesImage from '../بوكسات.png'
 import giftBoxesImage from '../بوكسات هدايا دعائية11 (3).png'
